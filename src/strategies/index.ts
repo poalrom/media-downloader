@@ -1,0 +1,1 @@
+export { FanSerials } from "./fanserials";

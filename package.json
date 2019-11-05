@@ -1,0 +1,30 @@
+{
+  "name": "media-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "start": "node -r dotenv/config dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/http-proxy-agent": "^2.0.1",
+    "@types/jsdom": "^12.2.4",
+    "@types/md5": "^2.1.33",
+    "@types/node": "^12.12.5",
+    "@types/node-fetch": "^2.5.3",
+    "commander": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "http-proxy-agent": "^2.1.0",
+    "jsdom": "^15.2.1",
+    "md5": "^2.2.1",
+    "node-fetch": "^2.6.0",
+    "p-map": "^3.0.0",
+    "typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "tslint": "^6.0.0-beta0"
+  }
+}
