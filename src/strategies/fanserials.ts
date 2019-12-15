@@ -91,8 +91,8 @@ export class FanSerials {
         const serial = this.getSerialByUrl(episodeUrl);
         const serialVoice = this.getSerialVoice(serial);
 
-        const downloadLinks = episodeDocDOM.querySelectorAll(".torrent tr");
-        const voiceRow = Array.from(downloadLinks)
+        const torrentLinks = episodeDocDOM.querySelectorAll(".torrent tr");
+        const voiceRow = Array.from(torrentLinks)
             .find(row => {
                 const voice = row.querySelector(".studio-voice");
                 if (!voice) {
@@ -101,7 +101,13 @@ export class FanSerials {
 
                 return voice.textContent.trim() === serialVoice;
             });
-        const downloadLink = Array.from(voiceRow.querySelectorAll(".download")).pop();
+        const downloadLinks = Array.from(voiceRow.querySelectorAll(".download"));
+        if (!downloadLinks.length) {
+            throw Error("No download links for " + episodeUrl);
+        }
+        const downloadLink = downloadLinks.length > 1 ?
+            downloadLinks[downloadLinks.length - 2] :
+            downloadLinks[0];
         const url = downloadLink.attributes.getNamedItem("href").value;
 
         this.changeUrl(episodeUrl, url);
